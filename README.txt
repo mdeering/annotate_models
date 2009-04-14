@@ -46,6 +46,16 @@ Annotate on the head of the file:
 
   rake db:annotate POSITION='top'
 
+Include schema version:
+  rake db:annotate SHOW_SCHEMA_VERSION='true'
+
+
+Set Options Permanently:
+
+If using bash, you can put these lines in your .bashrc file to set more permanently:
+  export POSITION='top'
+  export SHOW_SCHEMA_VERSION='true'
+
 
 == LICENSE:
 
