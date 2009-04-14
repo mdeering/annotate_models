@@ -131,7 +131,9 @@ module AnnotateModels
   # then pas it to the associated block
   def self.do_annotations
     header = PREFIX.dup
-    header << get_schema_version
+
+    # Don't show the schema version every time by default
+    header << get_schema_version if ENV['SHOW_SCHEMA_VERSION'] == 'true'
 
     annotated = self.get_model_names.inject([]) do |list, m|
       class_name = m.sub(/\.rb$/, '').camelize
