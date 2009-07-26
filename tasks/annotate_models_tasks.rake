@@ -1,4 +1,3 @@
-# #
 # old task :annotate_models removed
 
 namespace :db do
@@ -9,5 +8,5 @@ namespace :db do
   end
 
   desc "Updates database (migrate and annotate models)"
-  task :update => %w(migrate annotate)
+  task :update => %w(migrate annotate test:prepare)
 end
