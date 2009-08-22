@@ -8,22 +8,22 @@ namespace :db do
   end
 
   desc "Updates database (migrate and annotate models)"
-  task :migrate do
+  task :update do
     Rake::Task['db:annotate'].invoke
     Rake::Task['db:test:prepare'].invoke
   end
-  namespace :migrate do
-    task :down do
-      Rake::Task['db:annotate'].invoke
-      Rake::Task['db:test:prepare'].invoke
-    end
-    task :up do
-      Rake::Task['db:annotate'].invoke
-      Rake::Task['db:test:prepare'].invoke
-    end
-    task :rollback do
-      Rake::Task['db:annotate'].invoke
-      Rake::Task['db:test:prepare'].invoke
-    end
-  end
+  # namespace :migrate do
+  #   task :down do
+  #     Rake::Task['db:annotate'].invoke
+  #     Rake::Task['db:test:prepare'].invoke
+  #   end
+  #   task :up do
+  #     Rake::Task['db:annotate'].invoke
+  #     Rake::Task['db:test:prepare'].invoke
+  #   end
+  #   task :rollback do
+  #     Rake::Task['db:annotate'].invoke
+  #     Rake::Task['db:test:prepare'].invoke
+  #   end
+  # end
 end
