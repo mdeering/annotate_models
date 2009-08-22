@@ -9,6 +9,7 @@ namespace :db do
 
   desc "Updates database (migrate and annotate models)"
   task :update do
+    Rake::Task['db:migrate'].invoke
     Rake::Task['db:annotate'].invoke
     Rake::Task['db:test:prepare'].invoke
   end
