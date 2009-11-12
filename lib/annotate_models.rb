@@ -1,11 +1,12 @@
 require "config/environment"
 
-MODEL_DIR         = File.join(RAILS_ROOT, "app/models" )
-UNIT_TEST_DIR     = File.join(RAILS_ROOT, "test/unit"  )
-SPEC_MODEL_DIR    = File.join(RAILS_ROOT, "spec/models")
-FIXTURES_DIR      = File.join(RAILS_ROOT, "test/fixtures")
-SPEC_FIXTURES_DIR = File.join(RAILS_ROOT, "spec/fixtures")
-SORT_COLUMNS      = ENV['SORT'] != 'no'
+MODEL_DIR          = File.join(RAILS_ROOT, "app/models" )
+UNIT_TEST_DIR      = File.join(RAILS_ROOT, "test/unit"  )
+SPEC_MODEL_DIR     = File.join(RAILS_ROOT, "spec/models")
+FIXTURES_DIR       = File.join(RAILS_ROOT, "test/fixtures")
+SPEC_FIXTURES_DIR  = File.join(RAILS_ROOT, "spec/fixtures")
+SPEC_FACTORIES_DIR = File.join(RAILS_ROOT, "spec/factories")
+SORT_COLUMNS       = ENV['SORT'] != 'no'
 
 module AnnotateModels
 
@@ -99,13 +100,14 @@ module AnnotateModels
     fixtures_name = "#{klass.table_name}.yml"
 
     [
-      File.join(MODEL_DIR,          "#{model_name}.rb"),      # model
-      File.join(UNIT_TEST_DIR,      "#{model_name}_test.rb"), # test
-      File.join(FIXTURES_DIR,       fixtures_name),           # fixture
-      File.join(SPEC_MODEL_DIR,     "#{model_name}_spec.rb"), # spec
-      File.join(SPEC_FIXTURES_DIR,  fixtures_name),           # spec fixture
-      File.join(RAILS_ROOT,         'test', 'factories.rb'),  # factories file
-      File.join(RAILS_ROOT,         'spec', 'factories.rb'),  # factories file
+      File.join(MODEL_DIR,          "#{model_name}.rb"),          # model
+      File.join(UNIT_TEST_DIR,      "#{model_name}_test.rb"),     # test
+      File.join(FIXTURES_DIR,       fixtures_name),               # fixture
+      File.join(SPEC_MODEL_DIR,     "#{model_name}_spec.rb"),     # spec
+      File.join(SPEC_FIXTURES_DIR,  fixtures_name),               # spec fixture
+      File.join(RAILS_ROOT,         'test', 'factories.rb'),      # factories file
+      File.join(RAILS_ROOT,         'spec', 'factories.rb'),      # factories file
+      File.join(SPEC_FACTORIES_DIR, "#{model_name.pluralize}.rb") # factories files
     ].each { |file| annotate_one_file(file, info) }
   end
 
