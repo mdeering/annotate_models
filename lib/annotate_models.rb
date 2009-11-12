@@ -82,7 +82,7 @@ module AnnotateModels
         if ENV['POSITION'] == 'top'
           f.print info_block + SEP_LINES + content
         else
-          f.print content + SEP_LINES + info_block
+          f.print content + SEP_LINES + info_block + "\n"
         end
       end
     end
