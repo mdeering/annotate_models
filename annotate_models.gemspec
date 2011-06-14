@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Michael Deering"]
   s.email       = ["mdeering@mdeering.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Original code by: Dave Thomas}
+  s.description = %q{My version of annotate models that is setup to annotate in the bottom position and also factories}
 
   s.rubyforge_project = "annotate_models"
 
