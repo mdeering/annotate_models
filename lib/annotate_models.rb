@@ -1,3 +1,5 @@
+require "annotate_models/version"
+
 require "#{Rails.root}/config/environment"
 
 MODEL_DIR          = File.join(Rails.root, "app/models" )
