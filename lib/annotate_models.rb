@@ -1,6 +1,10 @@
 require "annotate_models/version"
 
-require "#{Rails.root}/config/environment"
+if Rails.version.split(".").first.to_i < 3
+  require "#{Rails.root}/config/environment"
+else
+  require "#{Rails.root}/config/application"
+end
 
 MODEL_DIR          = File.join(Rails.root, "app/models" )
 UNIT_TEST_DIR      = File.join(Rails.root, "test/unit"  )
